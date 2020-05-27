@@ -51,7 +51,7 @@ artist_table_create = ("""
         artist_id VARCHAR PRIMARY KEY,
         name VARCHAR NOT NULL, 
         location VARCHAR, 
-        lattitude FLOAT, 
+        latitude FLOAT, 
         longitude FLOAT
     );
 """)
@@ -65,7 +65,7 @@ time_table_create = ("""
         week INT NOT NULL, 
         month INT NOT NULL, 
         year INT NOT NULL, 
-        weekday INT NOT NULL
+        weekday VARCHAR NOT NULL
     );
 """)
 
@@ -116,10 +116,10 @@ song_table_insert = ("""
 artist_table_insert = ("""
     INSERT INTO artists (
         artist_id,
-        artist_name,
-        artist_location,
-        artist_longitude,
-        artist_latitude
+        name,
+        location,
+        longitude,
+        latitude
     )
     VALUES (%s, %s, %s, %s, %s)
     ON CONFLICT (artist_id)
@@ -136,9 +136,9 @@ time_table_insert = ("""
         year,
         weekday
     )
-    VALUES (%s, %s, %s, %s, %s, %s, %s);
+    VALUES (%s, %s, %s, %s, %s, %s, %s)
     ON CONFLICT (start_time)
-    DO NOTHING
+    DO NOTHING;
 """)
 
 # FIND SONGS
