@@ -28,3 +28,7 @@ The log files in the dataset you'll be working with are partitioned by year and 
 ```log_data/2018/11/2018-11-12-events.json```
 
 ```log_data/2018/11/2018-11-13-events.json```
+
+## Acknowledgements
+
+This project was completed as a part of [Udacity Data Engineering Nanodegree](https://www.udacity.com/course/data-scientist-nanodegree--nd025).
