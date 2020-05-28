@@ -1,4 +1,4 @@
-# Data Modeling with PostgreSQL
+# Sparkify Song Play Logs ETL Process
 
 ## Introduction
 A startup called **Sparkify** wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app. They'd like to have created a Postgres database with tables designed to optimize queries on song play analysis.
@@ -49,6 +49,21 @@ Using the song and log datasets, you'll need to create a star schema optimized f
 
 5. **time** - timestamps of records in songplays broken down into specific units
 - *start_time, hour, day, week, month, year, weekday*
+
+## File structure
+
+Files that the project consists of:
+- ```data``` - contains log and song datasets
+- ```sql_queries.py``` - is meant to be a query repository to use throughout the ETL process
+- ```create_tables.py``` - creates schema structure into the PostgreSQL database
+- ```etl.py``` - main ETL process
+- ```etl.ipynb``` - develops logic behind ```etl.py``` process
+- ```test.ipynb``` - certifies if ETL process is successful
+
+## Run the project
+
+Run create_tables.py script by typing "python create_tables.py" in the terminal. This will make sure that all the previous databases are dropped and new database with tables are created.
+Go ahead and run etl.py script by typing "python etl.py". This will run the etl pipeline and extract data from the log files and insert them into the facts and dimension table.s
 
 ## Acknowledgements
 
