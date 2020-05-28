@@ -60,10 +60,10 @@ Files that the project consists of:
 - ```etl.ipynb``` - develops logic behind ```etl.py``` process
 - ```test.ipynb``` - certifies if ETL process is successful
 
-## Run the project
+## Project launch
 
-Run create_tables.py script by typing "python create_tables.py" in the terminal. This will make sure that all the previous databases are dropped and new database with tables are created.
-Go ahead and run etl.py script by typing "python etl.py". This will run the etl pipeline and extract data from the log files and insert them into the facts and dimension table.s
+1. Run ```create_tables.py``` in terminal to make sure that all the previous databases are dropped and new database with tables are created.
+2. Run ```etl.py``` in terminal to run etl pipeline, extract data from the log files and insert them into the facts and dimension tables.
 
 ## Acknowledgements
 
