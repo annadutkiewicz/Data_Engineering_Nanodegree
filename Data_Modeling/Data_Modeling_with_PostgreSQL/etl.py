@@ -19,21 +19,27 @@ def insert_from_dataframe(cur, df, insert_query):
 
         
 def process_song_file(cur, filepath):
+    """
+    Process songs log file
+    :param cur: the cursor object
+    :param filepath: log data file path
+    :return: None
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
+    # insert artist record
+    artist_data = df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']]
+    artist_data = artist_data.drop_duplicates()
+    artist_data = artist_data.replace(np.nan, None, regex=True)
+    insert_from_dataframe(cur, artist_data, artist_table_insert)
+    
     # insert song record
     song_data = df[['song_id','title', 'artist_id', 'year', 'duration']]
     song_data = song_data.drop_duplicates()
     song_data = song_data.replace(np.nan, None, regex=True)
     insert_from_dataframe(cur, song_data, song_table_insert)
     
-    # insert artist record
-    artist_data = df[['artist_id','artist_name','artist_location','artist_latitude','artist_longitude']]
-    artist_data = artist_data.drop_duplicates()
-    artist_data = artist_data.replace(np.nan, None, regex=True)
-    insert_from_dataframe(cur, artist_data, artist_table_insert)
-
 
 def process_log_file(cur, filepath):
     """

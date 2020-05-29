@@ -11,7 +11,7 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 #records in log data associated with song plays i.e. records with page NextSong
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
-        songplay_id INT, 
+        songplay_id SERIAL, 
         start_time DATE REFERENCES time(start_time), 
         user_id INT NOT NULL REFERENCES users(user_id), 
         level VARCHAR, 
